@@ -67,4 +67,4 @@ const Modal = ({ abrir, cerrar, onSubmit }) => {
   );
 };
 
-export default Modal;
+// export default Modal;
