@@ -6,7 +6,7 @@ const Modal = ({ abrir, cerrar, onSubmit }) => {
     descripcion: '',
   });
 
-  const handleInputChange = (e) => {
+  const cambiEntrada = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -14,12 +14,8 @@ const Modal = ({ abrir, cerrar, onSubmit }) => {
     }));
   };
 
-  const handleAceptar = () => {
-    // Puedes guardar los datos en el estado local o pasarlos a la función onSubmit
-    // para manejarlos en el componente principal.
+  const manejoAceptar = () => {
     onSubmit(formData);
-
-    // Cerrar el modal después de aceptar.
     cerrar();
   };
 
@@ -35,7 +31,7 @@ const Modal = ({ abrir, cerrar, onSubmit }) => {
             type="text"
             name="nombre"
             value={formData.nombre}
-            onChange={handleInputChange}
+            onChange={cambiEntrada}
             className='w-[75%] mt-10 mb-6 mx-7 border-[1px] border-black'
             placeholder='Nombre'
           />
@@ -43,14 +39,14 @@ const Modal = ({ abrir, cerrar, onSubmit }) => {
             type="text"
             name="descripcion"
             value={formData.descripcion}
-            onChange={handleInputChange}
+            onChange={cambiEntrada}
             placeholder='Descripción'
             className='w-[80%] h-[5em] mb-10 mx-7 border-[1px] border-black'
           />
           <div className='ml-[50%] flex justify-evenly mb-10'>
             <button
               className='w-[30%] bg-gray-300 hover:bg-green-400 border-black border-[1px] rounded-md '
-              onClick={handleAceptar}
+              onClick={manejoAceptar}
             >
               Aceptar
             </button>
